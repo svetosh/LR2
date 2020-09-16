@@ -23,8 +23,7 @@ int main()
 	long int counter = 1, fact = 1;
 	
 	
-	
-	// while (abs(reference - result)<=precision) 
+
 	for(counter=1;counter<j;)
 		{
 		result += (pow(-1,counter+1))*((pow(x,counter))/(counter));
