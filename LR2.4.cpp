@@ -7,7 +7,7 @@ int main()
 	std::cout << "Здравствуйте!\n";
 	
 	double x =0.0;
-	std::cout << "введите Х \n";
+	std::cout << "введите -1≤Х≤1 \n";
 	std::cin >> x;
 	
 	double k =0.0;
