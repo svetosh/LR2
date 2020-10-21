@@ -53,31 +53,24 @@ int main()
 	std::cout << y;
 	/// 
 	double x = 0.0;
-	std::cout << "Vvedite -1≤x≤1 \n";
-	std::cin >> x;
-
+	cout << "Vvedite -1≤x≤1 \n";
+	cin >> x;
 	double k = 0.0;
-	std::cout << "Vvedite to4nost' ot 2 do 6 \n";
-	std::cin >> k;
-
-
-	double reference = log(1 + x), precision = pow(10, -k), result = x;
-	int fact = 0;
+	cout << "Vvedite to4nost' ot 2 do 6 \n";
+	cin >> k;
+	double reference = log(1 + x),
+		precision = pow(10, -k),
+		result = x;
+	int n = 2,
+		one = 1;
 	while ((result - reference > precision) || (reference - result > precision)) {
-		result += (pow(-1, fact + 1)) * ((pow(x, fact)) / (fact));
-		fact++;
+		one *= -1;
+		result += one *(pow(x, n) / n);
+		n++;
 	}
-
-	/* test
-	for (int counter = 1; counter < k; counter++){
-		result += (pow(-1, counter + 1)) * ((pow(x, counter)) / (counter));
-		std::cout << (reference - result) << " " << result << " " << counter << " " << fact << "\n";
-		fact++;
-	}
-	*/
-	std::cout << "\nOtvet:" << result;
-	std::cout << "\nTo4nost':" << precision;
-	std::cout << "\n4islo iteraciy:" << fact;
-
+	cout << "Otvet:" << result << endl;
+	cout << "Otvet:" << reference << endl;
+	cout << "To4nost':" << precision << endl;
+	cout << "4islo iteraciy:" << n << endl;
 	return 0;
 }
