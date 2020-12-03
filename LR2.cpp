@@ -1,76 +1,83 @@
-﻿#include <iostream>
+#include <iostream>
 #include <iomanip>
 #include <cmath>
+using namespace std;
 
 int main()
 {
-	std::cout << "hello!\n";
+	setlocale(LC_ALL, "ru");
 
-	unsigned char ch;
+	cout << "hello!" << endl;
+	unsigned char ascii;
+	for (ascii = 0; ascii < 127; ascii++)
+	{
 
-	for (ch = 0;ch < 127;ch++) {
-
-		std::cout << ch << " " << static_cast<int>(ch) << '\n';
+		cout << ascii << " " << static_cast<int>(ascii) << endl;
 	}
-	/// 
+	
 	char ch = 0;
-	std::cout << "Введите символ\n";
-	std::cin >> ch;
+	cout << "Введите символ" << endl;
+	cin >> ch;
 
 	if ((ch >= 48) && (ch <= 57))
 	{
-		std::cout << "Введённый символ - цифра";
+		cout << "Введённый символ - цифра" << endl;
 	}
 	else
 	{
 		if (((ch >= 97) && (ch <= 122)) || ((ch >= 65) && (ch <= 90)))
 		{
-			std::cout << "Введённый символ - буква";
+			std::cout << "Введённый символ - буква" << endl;
 		}
 		else
 		{
-			std::cout << "Неизвесный символ";
+			std::cout << "Неизвесный символ" << endl;
 		}
 	}
 	/// 
-	uint64_t x = 0;
-
-	std::cout << "Введите Х\n";
-	std::cin >> x;
-
+	int x_3 = 0;
+	cout << "Введите Х " << endl;
+	cin >> x_3;
 	double y = 0;
-
-	switch (x % 4)
+	switch (x_3 % 4)
 	{
-	case 0: {y = 0; break;}
-	case 1: {y = 5 - x; break;}
-	case 2: {y = 1 / (static_cast<double>(x)); break;}
-	case 3: {y = x; break;}
-
-	default: { std::cout << "Error 404"; return 1; }
+		case 0:
+			y = 0;
+			break;
+		case 1:
+			y = 5 - x_3;
+			break;
+		case 2:
+			y = 1 / (static_cast<double>(x_3));
+			break;
+		case 3:
+			y = x_3;
+			break;
+		default: { std::cout << "Error 404"; return 1; }
 	}
-	std::cout << "Ответ: ";
-	std::cout << y;
+	cout << "Ответ: " << y << endl; 
 	/// 
-	double x = 0.0;
-	cout << "Vvedite -1≤x≤1 \n";
-	cin >> x;
-	double k = 0.0;
-	cout << "Vvedite to4nost' ot 2 do 6 \n";
+	double x_4 = 0;
+	cout << "Введите -1≤ x ≤1" << endl;
+	cin >> x_4;
+
+	double k = 0;
+	cout << "введите точность от 2 до 6" << endl;
 	cin >> k;
-	double reference = log(1 + x),
-		precision = pow(10, -k),
-		result = x;
+
+	double logarifm = log(1 + x_4),
+		   accuracy = pow(10, -k),
+		   result = x_4;
 	int n = 2,
 		one = 1;
-	while ((result - reference > precision) || (reference - result > precision)) {
+	while ((result - logarifm > accuracy) || (logarifm - result > accuracy)) {
 		one *= -1;
-		result += one *(pow(x, n) / n);
+		result += one * (pow(x_4, n) / n);
 		n++;
 	}
-	cout << "Otvet:" << result << endl;
-	cout << "Otvet:" << reference << endl;
-	cout << "To4nost':" << precision << endl;
-	cout << "4islo iteraciy:" << n << endl;
+	cout << "Ответ:" << result << endl;
+	cout << "logarifm:" << logarifm << endl;
+	cout << "Точность:" << accuracy << endl;
+	cout << "Число итераций:" << n << endl;
 	return 0;
 }
